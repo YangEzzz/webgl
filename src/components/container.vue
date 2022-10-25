@@ -1,17 +1,19 @@
 <script setup>
-import {ref} from 'vue'
-import router from '../router';
-const routeMap = [
-	{
-		label: '正方体',
-		value: '/first',
-	},
-	{
-		label: '卫星',
-		value: '/star',
-	},
-]
-const cur=ref('/first')
+import {ref, computed} from 'vue'
+import { useRoute, useRouter } from 'vue-router';
+import {routes as myRoutes} from '../router'
+const router=useRouter()
+const routes = useRoute()
+
+const routeMap=computed(()=>{
+  return myRoutes[0].children.map((item)=>{
+    return {
+      label: item.name,
+      value: item.path,
+    }
+  })
+})
+const cur=ref(routes.name)
 const routeChange=()=>{
 	router.push(cur.value)
 }

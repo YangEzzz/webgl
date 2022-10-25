@@ -2,22 +2,27 @@ import {
 	createRouter,
 	createWebHashHistory,
 } from 'vue-router'
-const routes = [
+export const routes = [
 	{
 		name: 'container',
 		path:  '/',
-		redirect: '/first',
-		component: ()=>import('../components/container.vue'),
+		redirect: '/cube',
+		component: ()=>import('../components/Container.vue'),
 		children: [
 			{
-				name: 'first',
-				path: '/first',
-				component: ()=>import('../components/first.vue')
+				name: '属性测试',
+				path: '/test',
+				component: ()=>import('../components/AttrTest.vue')
 			},
 			{
-				name: 'star',
+				name: '正方体',
+				path: '/cube',
+				component: ()=>import('../components/Cube.vue')
+			},
+			{
+				name: '卫星',
 				path: '/star',
-				component: ()=>import('../components/star.vue')
+				component: ()=>import('../components/Star.vue')
 			},
 		]
 	},
