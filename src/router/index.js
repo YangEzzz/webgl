@@ -4,14 +4,22 @@ import {
 } from 'vue-router'
 const routes = [
 	{
-		name: 'first',
-		path: '/',
-		component: ()=>import('../components/first.vue')
-	},
-	{
-		name: 'star',
-		path: '/star',
-		component: ()=>import('../components/star.vue')
+		name: 'container',
+		path:  '/',
+		redirect: '/first',
+		component: ()=>import('../components/container.vue'),
+		children: [
+			{
+				name: 'first',
+				path: '/first',
+				component: ()=>import('../components/first.vue')
+			},
+			{
+				name: 'star',
+				path: '/star',
+				component: ()=>import('../components/star.vue')
+			},
+		]
 	},
 ]
 const router = createRouter({
