@@ -24,6 +24,11 @@ export const routes = [
 				path: '/star',
 				component: ()=>import('../components/Star.vue')
 			},
+			{
+				name: '基础',
+				path: '/basic',
+				component: ()=>import('../components/Basic.vue')
+			},
 		]
 	},
 ]
