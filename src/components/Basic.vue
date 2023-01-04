@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { onMounted } from 'vue'
 import { gsap } from 'gsap'
+import * as dat from "dat.gui"
 
 const sizes={
 	width:window.innerWidth,
@@ -36,8 +37,15 @@ onMounted(()=>{
 	
 	// 创建控制器
 	const controls = new OrbitControls(camera, canvas)
+	controls.enableDamping=true
 	// const clock=new THREE.Clock()
-	gsap.to(cube.position, {x:5, duration: 5})
+	// gsap.to(cube.position, {x:5, duration: 5,repeat: 3})
+	
+	
+	const gui=new dat.GUI()
+	gui.add(cube.position, "x").min(0).max(5).name("移动x轴")
+	
+	
 	const tick = () => {
 		// const time = clock.getDelta()
 		// console.log(time)
@@ -58,6 +66,7 @@ onMounted(()=>{
 		camera.aspect = sizes.width / sizes.height;
 		camera.updateProjectionMatrix();
 	})
+	
 })
 
 </script>
