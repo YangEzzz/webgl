@@ -29,6 +29,11 @@ export const routes = [
 				path: '/basic',
 				component: ()=>import('../components/Basic.vue')
 			},
+			{
+				name: '光照',
+				path: '/light',
+				component: ()=>import('../components/Light.vue')
+			},
 		]
 	},
 ]
